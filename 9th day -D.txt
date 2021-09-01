@@ -1,0 +1,23 @@
+Solving problems using array functions on rest countries data.
+
+
+d) Print the total population of countries using reduce function
+
+var request = new XMLHttpRequest();
+request.open('GET','https://restcountries.eu/rest/v2/all',true);
+request.send();
+request.onload = function(){
+    var data = JSON.parse(request.response);
+    let r=[];
+    data.forEach(function(element){
+        r.push(element["population"]);
+    });
+    let m = r.reduce(function(previousValue, currentValue, currentIndex, array){
+        return previousValue + currentValue;
+    });
+    console.log(m);
+
+}
+
+OUTPUT:
+7349137231
