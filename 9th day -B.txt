@@ -8,14 +8,13 @@ request.open('GET','https://restcountries.eu/rest/v2/all',true);
 request.send();
 request.onload = function(){
     var data = JSON.parse(request.response);
-    let r = data.filter(function(element){
+    let r = data.filter((element)=>{
         if(element.population < 200000){
             return element;
         }
     });
     console.log(r);
 }
-
 
 
 OUTPUT:
