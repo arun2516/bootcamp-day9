@@ -8,14 +8,8 @@ request.open('GET','https://restcountries.eu/rest/v2/all',true);
 request.send();
 request.onload = function(){
     var data = JSON.parse(request.response);
-    let r=[];
-    data.forEach(function(element){
-        r.push(element["population"]);
-    });
-    let m = r.reduce(function(previousValue, currentValue, currentIndex, array){
-        return previousValue + currentValue;
-    });
-    console.log(m);
+    let res = data.reduce((acc,element)=>acc+element.population,0);
+    console.log(res);
 
 }
 
